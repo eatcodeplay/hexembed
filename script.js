@@ -50,8 +50,9 @@
     });
 
     itemsContainer.addEventListener('click', (evt) => {
-      if (evt.target.classList.contains('item')) {
-        const { name, color } = evt.target.dataset;
+      const target = evt.target.closest('.item');
+      if (target) {
+        const { name, color } = target.dataset;
         const slugged = slugify(name, { lower: true, strict: true });
         let output = color;
         
