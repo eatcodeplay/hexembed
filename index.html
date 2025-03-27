@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HexEmbed</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/nearest-color@0.4.4/nearestColor.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.js"></script>
+</head>
+<body>
+  <div class="colors">
+    <div></div>
+  </div>
+  <div class="instructions">
+    <div class="content">
+      <header>
+          <h1>Welcome to HexEmbed</h1>
+          <p>HexEmbed is a simple tool designed to help you easily embed color swatches into any IFrame-embed capable tool. Whether you're organizing notes, building a visual reference, or designing your workspace, HexEmbed allows you to define colors, view their names and hex codes, and quickly copy them in various formats.</p>
+      </header>
+      <section>
+        <h2>Try it</h2>
+        <form method="GET">
+          <input id="colors" name="colors" type="text" placeholder="Example: #110068,#fe0024,#ff4901,#f5e400,#49fe00">
+          <select id="style" name="style">
+            <option value="swatches">Swatches</option>
+            <option value="listv">Vertical List</option>
+            <option value="listv">Horizontal List</option>
+          </select>
+          <button type="submit">Show me</button>
+        </form>
+      </section>
+      <section>
+          <h2>URL Guide:</h2>
+          <p>Simply define your colors and how you'd like them displayed by using the URL query parameters.</p>
+
+          <h4>Example URL:</h4>
+          <pre><code><span class="url"></span>?<strong>colors</strong>=110068,fe0024,ff4901,f5e400,49fe00&<strong>style</strong>=listv</code></pre>
+
+          <ul class="parameters">
+              <li><strong>colors</strong> – <em>Provide one or more hex color codes, separated by commas</em>.
+                  <ul>
+                    <li>Don't include the <code>#</code> (hash symbol); just the 6-digit code.</li>
+                    <li>Example: <code>ff0000</code> for red, <code>ffaa55</code> for light orange, <code>00ff00</code> for green.</li>
+                  </ul>
+              </li>
+              <li><strong>style</strong> – <em>Choose how you want to view your colors</em>.
+                  <ul>
+                      <li><code>swatches</code> – displays a grid of color boxes.</li>
+                      <li><code>listv</code> – displays a vertical list of colors.</li>
+                      <li><code>listh</code> – displays a horizontal list of colors.</li>
+                  </ul>
+              </li>
+          </ul>
+          <p>You can customize your color experience by adjusting these parameters directly in the URL.</p>
+      </section>
+
+      <section>
+          <h2>Available Shortcuts:</h2>
+          <p>While interacting with the color swatches, you can copy and export the information you need with the following shortcuts when clicking a color item:</p>
+
+          <ul class="shortcuts">
+              <li>
+                <span><kbd>Left Click</kbd> – <em>Copy Hex Color to Clipboard</em>:</span> 
+                <span>
+                  A simple click on any color will copy its hex code to your clipboard. 
+                  <br/>For example: <code>#ff0000</code>
+                </span>
+             </li>
+              <li>
+                <span><kbd>Ctrl / ⌘</kbd> + <kbd>Left Click</kbd> – <em>Copy CSS Variable and Color</em>:</span> 
+                <span>
+                  Will copy both a CSS variable (based on the color name) and the hex code to your clipboard. 
+                  <br/>For example: <code>--color-red: #ff00000;</code>
+                </span>
+              </li>
+              <li>
+                <span><kbd>Shift / ⇧</kbd> + <kbd>Left Click</kbd> – <em>Copy Color Name</em>:</span> 
+                <span>
+                  Will copy just the name of the color to your clipboard. 
+                  <br/>For example: <code>Red</code>
+                </span>
+              </li>
+              <li>
+                <span><kbd>Alt / ⌥</kbd> + <kbd>Left Click</kbd> – <em>Copy CSS Variable Name Only</em>:</span> 
+                <span>
+                  Will copy just the color’s name in the format of a CSS variable. 
+                  <br>For example: <code>--color-red</code>
+                </span>
+              </li>
+          </ul>
+      </section>
+    </div>
+  </div>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
